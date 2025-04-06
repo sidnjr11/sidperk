@@ -99,15 +99,15 @@
        keep="true"
        zorder="999">
 </layer>
-<layer name="btn_scene_1_day"
+<layer name="btn_scene_1_day_button"
        parent="sidebar"
        type="text"
-       html="Entrance bay"
+       html="Entrance "
        width="180"
        height="40"
        align="lefttop"
        x="15"
-       y="90"  
+       y="100"  
        background="true"
        bgcolor="0x000000"
        bgalpha="0.6"
@@ -117,15 +117,15 @@
        visible="true"
        keep="true"
        zorder="1001" />
-<layer name="scene_1_dnight"
+<layer name="scene_1_dnight_button"
        parent="sidebar"
        type="text"
-       html="Entrance bay"
+       html="Entrance Night"
        width="180"
        height="40"
        align="lefttop"
        x="15"
-       y="180"  
+       y="150"  
        background="true"
        bgcolor="0x000000"
        bgalpha="0.6"
@@ -136,7 +136,24 @@
        keep="true"
        zorder="1001" />
 
-
+<layer name="scene_1_Reception_1_button"
+       parent="sidebar"
+       type="text"
+       html="Reception"
+       width="180"
+       height="40"
+       align="lefttop"
+       x="15"
+       y="200"  
+       background="true"
+       bgcolor="0x000000"
+       bgalpha="0.6"
+       border="1 0xffffff 0.3"
+       css="font-size:16px; color:#FAF9F6; padding:10px;"
+       onclick="loadscene(scene_1_Reception_1, null, MERGE);"
+       visible="true"
+       keep="true"
+       zorder="1001" />
 
 
 
