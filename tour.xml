@@ -68,7 +68,7 @@
 	<!-- <include url="skin/vtourskin_design_117.xml"         /> -->
 	<!-- <include url="skin/vtourskin_design_117round.xml"    /> -->
 	<!-- <include url="skin/vtourskin_design_black.xml"       /> -->
-	
+
 	<action name="toggle_sidebar">
 	if(layer[sidebar].visible,
 		set(layer[sidebar].visible, false);
@@ -95,6 +95,31 @@
 		zorder="999">
 	</layer>
 	
+	<action name="build_sidebar_buttons">
+		<foreach name="scene" from="scene">
+			<copy name="scene_title" value="get(scene[%scene.index].title)" />
+			<copy name="scene_name" value="get(scene[%scene.index].name)" />
+			
+			<trace>Creating button for: %scene_title%</trace> <!-- DEBUG LINE -->
+
+			<layer name="btn_%scene_name%" parent="sidebar"
+				type="text"
+				html="%scene_title%"
+				width="220"
+				align="lefttop"
+				x="15"
+				y="%calc(20 + %scene.index% * 40)%"
+				background="true"
+				bgcolor="0xffffff"
+				bgalpha="0.2"
+				border="1 0xffffff 0.5"
+				css="font-size:16px; color:#ffffff; padding:10px;"
+				onclick="loadscene(%scene_name%, null, MERGE);" />
+		</foreach>
+	</action>
+
+
+
 	<scene name="scene_1_day" title="1 day" onstart="" thumburl="panos/1_day.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
