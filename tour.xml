@@ -1,7 +1,6 @@
 ﻿<krpano version="1.21" title="Virtual Tour">
 <include url="plugins/circle_hotspots.xml"/>
 <include url="skin/vtourskin.xml" />
-<include url="plugins/soundinterface.js" />
 
 <plugin name="soundinterface"
         url="plugins/soundinterface.js"
@@ -41,6 +40,17 @@
     );
 </action>
 
+<action name="silence_errors">
+    set(showerrors, false);
+    set(debugmode, false);
+    set(logkey.enabled, false);
+    set(keycode_192.enabled, false);
+    set(keycode_76.enabled, false);
+    set(plugin[log].visible, false);
+    removelayer(log);
+</action>
+
+<events name="krpanoReady" onkrpanoready="silence_errors();" />
 	<!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
 	<skin_settings maps="false"
 	               maps_type="google"
@@ -55,7 +65,7 @@
 	               littleplanetintro="false"
 	               followmousecontrol="false"
 	               title="true"
-	               thumbs="true"
+	               thumbs="false"
 	               thumbs_width="120" thumbs_height="80" thumbs_padding="10" thumbs_crop="0|40|240|160"
 	               thumbs_opened="false"
 	               thumbs_text="false"
@@ -342,8 +352,7 @@
        url="%SWFPATH%/skin/soundonoff.png"
        width="40"
        height="40"
-       align="midright"  
-       y="8%"             
+       align="midright"         
        onclick="toggle_music();"
        visible="true"
        keep="true"
@@ -391,9 +400,7 @@
        
     <layer name="menu_button"
            url="%SWFPATH%/skin/button_toggle.png"
-           align="lefttop"
-           x="1%"
-           y="50%"
+           align="midleft"
            width="40"
            height="40"
            enabled="true"
@@ -408,7 +415,7 @@
 	       height="100%"
 	       align="lefttop"
 	       bgcolor="0x478D8D"
-	       bgalpha="0.9"
+	       bgalpha="1"
            border="2 #FFFFFF 1.0"
 	       visible="false" 
            scalechildren="true"
@@ -781,8 +788,8 @@
 
 		<hotspot name="spot1" style="hs_circle" ath="3.687" atv="-0.916" linkedscene="scene_1_ENTRANCE" linkedscene_lookat="1.43,14.87,116.42" linkedscene_hoffset="0.0" use3dtransition="true" tag="Reception"/>
 		
-		<hotspot name="spot3" style="hs_circle" ath="43.058" atv="-55.585" linkedscene="scene_JUNIOR_SUITE1" linkedscene_lookat="25.33,11.4,120.0" linkedscene_hoffset="0.0" use3dtransition="true" tag="Junior Suite"/>
-		<hotspot name="spot2" style="hs_circle" ath="26.762" atv="-53.214" linkedscene="scene_Deluxe_Room_1" linkedscene_lookat="-63.91,22.78,110.28" tag="Deluxe Room"/>
+		<hotspot name="spot3" style="hs_circle" ath="45.058" atv="-54.000" linkedscene="scene_JUNIOR_SUITE1" linkedscene_lookat="25.33,11.4,120.0" linkedscene_hoffset="0.0" use3dtransition="true" tag="Junior Suite"/>
+		<hotspot name="spot2" style="hs_circle" ath="27.762" atv="-51.214" linkedscene="scene_Deluxe_Room_1" linkedscene_lookat="-63.91,22.78,110.28" tag="Deluxe Room"/>
 		
 
 	</scene>
@@ -800,9 +807,9 @@
 		</image>
 
 		<hotspot name="spot1" style="hs_circle" ath="2.315" atv="-1.411" linkedscene="scene_1_ENTRANCE" linkedscene_lookat="0.58,11.16,116.42" linkedscene_hoffset="-1.22" use3dtransition="true" tag = "Overview"/>
-		<hotspot name="spot2" style="hs_circle" ath="25.573" atv="-53.458" linkedscene="scene_Deluxe_Room_1" linkedscene_lookat="-63.51,22.63,110.28" tag= "Deluxe Room"/>
-		<hotspot name="spot3" style="hs_circle" ath="41.908" atv="-55.833" linkedscene="scene_JUNIOR_SUITE1" linkedscene_lookat="25.32,16.29,120.0" linkedscene_hoffset="361.85" use3dtransition="true" tag = "Junior Suite"/>
-
+        <hotspot name="spot3" style="hs_circle" ath="45.058" atv="-54.000" linkedscene="scene_JUNIOR_SUITE1" linkedscene_lookat="25.33,11.4,120.0" linkedscene_hoffset="0.0" use3dtransition="true" tag="Junior Suite"/>
+		<hotspot name="spot2" style="hs_circle" ath="27.762" atv="-51.214" linkedscene="scene_Deluxe_Room_1" linkedscene_lookat="-63.91,22.78,110.28" tag="Deluxe Room"/>
+		
 	</scene>
 
 	<scene name="scene_1_ENTRANCE" title="1 ENTRANCE" onstart="set(layer[daynight_button].visible, false);" thumburl="panos/1_ENTRANCE.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
