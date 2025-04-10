@@ -9,13 +9,14 @@
 	<action	name="generate_circle_hotspots_images" scope="local">
 		for(set(h,0), h LT hotspot.count, inc(h);,
 			if(hotspot[get(h)].style == 'hs_circle',
-				txtadd(hs_circle,get(hotspot[get(h)].name),'_img');
+            <!-- THis was code for pop up image -->
+				<!-- txtadd(hs_circle,get(hotspot[get(h)].name),'_img');
 				addhotspot(get(hs_circle));
                 hotspot[get(hs_circle)].loadstyle(hs_circle_img);
 				copy(hotspot[get(hs_circle)].ath,hotspot[get(h)].ath);
 				copy(hotspot[get(hs_circle)].atv,hotspot[get(h)].atv);
                 txtadd(hotspot[get(hs_circle)].url, '%HTMLPATH%/plugins/circular_thumbs/',get(hotspot[get(h)].name),'.png');
-                set(hotspot[get(hs_circle)].scale,0.3);
+                set(hotspot[get(hs_circle)].scale,0.3); -->
 
                 txtadd(hs_tag,get(hotspot[get(h)].name),'_tag');        
                 addhotspot(get(hs_tag));        
@@ -52,14 +53,14 @@
     onclick.desktop="set(enabled, false); onclick2();"/>
 
     
-    <style name="hs_circle_img" 
+    <!-- <style name="hs_circle_img" 
         type="image"
         url="hs_circle.png"
         scale="0.5"
         alpha="0"
         flying="0.03"
         zorder="999999"
-        enabled="false"/>       
+        enabled="false"/>        -->
     
     <!-- Circle Hotspot Tag (Textfield) Style, shows the name of the next scene when hotspot is activated -->
     
@@ -103,9 +104,9 @@
             delayedcall(0.2,set(hotspot[%1].zorder,0););
 		
 		<!-- Show circle thumbnail -->	        
-            txtadd(hs_img, %1 , '_img');
+            <!-- txtadd(hs_img, %1 , '_img');
             tween(hotspot[get(hs_img)].scale,0.58,0.3,easeoutcubic);
-            tween(hotspot[get(hs_img)].alpha,1,0.3,easeoutcubic);
+            tween(hotspot[get(hs_img)].alpha,1,0.3,easeoutcubic); -->
     </action>
 	
 	<action name="hs_anim_off">
@@ -124,9 +125,9 @@
             tween(hotspot[%1].alpha,1,0.3,easeoutcubic);
 			
 		<!-- Hide circle thumbnail -->	       
-            txtadd(hs_img, %1 , '_img');        
+            <!-- txtadd(hs_img, %1 , '_img');        
             tween(hotspot[get(hs_img)].scale,0.28,0.3,easeoutcubic);
-            tween(hotspot[get(hs_img)].alpha,0,0.3,easeoutcubic);
+            tween(hotspot[get(hs_img)].alpha,0,0.3,easeoutcubic); -->
 	</action>  
     
 </krpano>    
