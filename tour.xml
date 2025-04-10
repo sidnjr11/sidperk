@@ -116,6 +116,10 @@
         onkrpanoready="playsound(bgsnd, '%SWFPATH%/music/background.mp3', 0, 0.5);"
         keep="true"
 /> -->
+<action name="init_flags">
+    set(music_is_playing, false);
+</action>
+
 
     <action name="toggle_sidebar">
 	    if(layer[sidebar].visible,
@@ -140,9 +144,18 @@
             tween(layer[menu_button].x, 250, 0.5);               <!-- Move menu button to align with sidebar -->
         );
     </action>
-    <action name="pause_bg_music">
-        js('soundinterface.pausesound("bgsnd");');
+
+
+    <action name="toggle_music">
+        if(!music_is_playing,
+            playsound(bgsnd, '%SWFPATH%/music/background.mp3', 0, 0.5);
+            set(music_is_playing, true);
+        ,
+            pausesound('bgsnd');
+            set(music_is_playing, false);
+        );
     </action>
+    
 
 
     <action name="switch_daynight">
@@ -309,7 +322,7 @@
             bgcolor="0x478D8D"
             bgalpha="0.5"
             css="font-family: 'Montserrat', sans-serif; font-size:18px; font-weight:bold; color:#FFFFFF; text-align:center; line-height:50px;"
-            onclick="hide_welcome_layer_natural();playsound(bgsnd, '%SWFPATH%/music/background.mp3'), 0, 0.5);"
+            onclick="hide_welcome_layer_natural();init_flags();toggle_music();"
             keep="true"
             zorder="1000" />
     </layer>
@@ -331,7 +344,7 @@
        height="40"
        align="midright"  
        y="8%"             
-       onclick="pausesound('bgsnd');"
+       onclick="toggle_music();"
        visible="true"
        keep="true"
        zorder="2000" />
