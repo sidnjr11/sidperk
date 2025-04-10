@@ -320,21 +320,30 @@
                zorder="10001"
                keep="true"
                handcursor="false" />
-        <layer name="welcome_button"
-            parent="welcome_layer"
-            type="text"
-            html="Welcome"
-            align="center"
-            x="0"
-            y="150"
-            width="200"
-            height="50"
-            bgcolor="0x478D8D"
-            bgalpha="0.5"
-            css="font-family: 'Montserrat', sans-serif; font-size:18px; font-weight:bold; color:#FFFFFF; text-align:center; line-height:50px;"
-            onclick="hide_welcome_layer_natural();init_flags();toggle_music();"
-            keep="true"
-            zorder="1000" />
+
+               <layer name="welcome_button"
+               parent="welcome_layer"
+               type="text"
+               html="Enter"
+               align="center"
+               x="0"
+               y="150"
+               width="200"
+               height="50"
+               bgcolor="0x478D8D"
+               bgalpha="0.5"
+               roundedge="15"
+               shadow="2"
+               shadowcolor="0x000000"
+               shadowalpha="0.4"
+               css="font-family:'Montserrat', sans-serif; font-size:18px; font-weight:bold; color:#FFFFFF; text-align:center; line-height:50px;"
+               onover="tween(scale, 1.1); tween(bgalpha, 0.8);"
+               onout="tween(scale, 1.0); tween(bgalpha, 0.5);"
+               onclick="hide_welcome_layer_natural();init_flags();toggle_music();"
+               keep="true"
+               zorder="1000" />
+           
+
     </layer>
 
 	<layer name="daynight_button"
@@ -363,8 +372,8 @@
        align="centertop"
        x="0"
        y="-40"
-       width="250"
-       height="180"
+       width="200"
+       height="130"
        keep="true"
        handcursor="false"
        zorder="999" />
@@ -420,7 +429,7 @@
 	       visible="false" 
            scalechildren="true"
 	       keep="true"
-	       zorder="999"
+	       zorder="2001"
            padding="5"> <!-- Add padding to the sidebar -->
 	    
 	   	   <!-- Update the sidebar logo section -->
@@ -849,7 +858,7 @@
 
 	</scene>
 
-	<scene name="scene_1_Reception_2" title="1 Reception 2" onstart="set(layer[daynight_button].visible, false);mark_scene_visited(xml.scene);set(layer[scene_title_display].html, 'DELUXE ROOM'); set(layer[scene_title_display].visible, true)" thumburl="panos/1_Reception_2.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+	<scene name="scene_1_Reception_2" title="1 Reception 2" onstart="set(layer[daynight_button].visible, false);mark_scene_visited(xml.scene);set(layer[scene_title_display].html, 'Reception'); set(layer[scene_title_display].visible, true)" thumburl="panos/1_Reception_2.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
@@ -868,7 +877,7 @@
 
 	</scene>
 
-	<scene name="scene_1_ROOMS" title="1 ROOMS" onstart="set(layer[daynight_button].visible, false);set(layer[scene_title_display].html, 'DELUXE ROOM'); set(layer[scene_title_display].visible, true)" thumburl="panos/1_ROOMS.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
+	<scene name="scene_1_ROOMS" title="1 ROOMS" onstart="set(layer[daynight_button].visible, false);set(layer[scene_title_display].html, 'Rooms'); set(layer[scene_title_display].visible, true)" thumburl="panos/1_ROOMS.tiles/thumb.jpg" lat="" lng="" alt="" heading="">
 		
 		<control bouncinglimits="calc:image.cube ? true : false" />
 
